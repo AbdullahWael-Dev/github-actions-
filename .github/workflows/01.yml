@@ -1,5 +1,5 @@
 name: 01 Basics First Workflow
-
+run-name: ${{github.actor}} explain-context-data
 on: workflow_dispatch
 
 jobs:
@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Hello World
+        # run: echo ${{to_json(github)}}
+        # run: echo ${{to_json(github.event)}}
         run: echo ${{github.actor}}
