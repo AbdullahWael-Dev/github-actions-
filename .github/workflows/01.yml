@@ -1,14 +1,28 @@
 name: 01 Basics First Workflow
 run-name: ${{github.actor}} explain-context-data
 
+env:
+  MY_NAME: 'Abdallah Wael'
+  
 on:  
   workflow_dispatch
 
 jobs:
   print-hello-world:
     runs-on: ubuntu-latest
+    env: 
+      MY_NAME2: 'Abdallah wael 2'
     steps:
-      - name: Print Hello World
+      - name: Print steps vars
+        env:
+          MY_NAME3: 'Abdallah Wael3'
         # run: echo ${{to_json(github)}}
         # run: echo ${{to_json(github.event)}}
-        run: echo ${{github.actor}}
+        # run: echo ${{github.actor}}
+        run: echo ${{env.MY_NAME3}}
+        
+      - name: Print job vars
+        # run: echo ${{to_json(github)}}
+        # run: echo ${{to_json(github.event)}}
+        # run: echo ${{github.actor}}
+        run: echo ${{env.MY_NAME2}}
