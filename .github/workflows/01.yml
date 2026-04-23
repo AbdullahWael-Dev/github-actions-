@@ -22,13 +22,10 @@ jobs:
         run: echo ${{env.MY_NAME3}}
         
       - name: Print job vars
-        # run: echo ${{to_json(github)}}
-        # run: echo ${{to_json(github.event)}}
-        # run: echo ${{github.actor}}
         run: echo ${{env.MY_NAME2}}
 
       - name: Print config vars
-        # run: echo ${{to_json(github)}}
-        # run: echo ${{to_json(github.event)}}
-        # run: echo ${{github.actor}}
         run: echo ${{vars.MY_CONFIG_VALUE}}
+
+      - name: Print secret vars
+        run: echo ${{secrets.MY_CREDENTIAL_PASS }}
