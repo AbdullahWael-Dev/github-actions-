@@ -26,3 +26,9 @@ jobs:
         # run: echo ${{to_json(github.event)}}
         # run: echo ${{github.actor}}
         run: echo ${{env.MY_NAME2}}
+
+      - name: Print config vars
+        # run: echo ${{to_json(github)}}
+        # run: echo ${{to_json(github.event)}}
+        # run: echo ${{github.actor}}
+        run: echo ${{vars.MY_CONFIG_VALUE}}
