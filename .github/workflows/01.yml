@@ -13,19 +13,5 @@ jobs:
     env: 
       MY_NAME2: 'Abdallah wael 2'
     steps:
-      - name: Print steps vars
-        env:
-          MY_NAME3: 'Abdallah Wael3'
-        # run: echo ${{to_json(github)}}
-        # run: echo ${{to_json(github.event)}}
-        # run: echo ${{github.actor}}
-        run: echo ${{env.MY_NAME3}}
-        
-      - name: Print job vars
-        run: echo ${{env.MY_NAME2}}
-
-      - name: Print config vars
-        run: echo ${{vars.MY_CONFIG_VALUE}}
-
-      - name: Print secret vars
-        run: echo ${{secrets.MY_CREDENTIAL_PASS }}
+      - name: Print Hello World
+        run: echo "Hello World !"
