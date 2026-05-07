@@ -2,7 +2,7 @@ name: 01 Basics First Workflow
 run-name: ${{github.actor}} explain-context-data
 
 env:
-  MY_NAME: 'Abdallah Wael'
+  RUN_NUMBER: ${{ github.run_number >= 1 && 'greater than 1' || 'less than 1' }}
   
 on:  
   workflow_dispatch
