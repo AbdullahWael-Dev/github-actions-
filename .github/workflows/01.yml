@@ -30,4 +30,24 @@ jobs:
       - name: Print secret vars
         run: echo ${{secrets.MY_CREDENTIAL_PASS }}
 
+  Build: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Project
+        run: echo "hello world"
+
+  Test: 
+    runs-on: ubuntu-latest
+    needs: Build
+    steps:
+      - name: Build Project
+        run: echo "Test Project Dependency"
+  Deploy: 
+    runs-on: ubuntu-latest
+    needs: [Build,Test]
+    steps:
+      - name: Build Project
+        run: echo "Deploy Project Dependency"
+
+
 
