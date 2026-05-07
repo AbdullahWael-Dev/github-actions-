@@ -19,7 +19,7 @@ jobs:
         # run: echo ${{to_json(github)}}
         # run: echo ${{to_json(github.event)}}
         # run: echo ${{github.actor}}
-        run: echo ${{env.MY_NAME3}}
+        run: echo ${{env.RUN_NUMBER}}
         
       - name: Print job vars
         run: echo ${{env.MY_NAME2}}
