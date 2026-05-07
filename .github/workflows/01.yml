@@ -11,8 +11,16 @@ jobs:
   print-hello-world:
     runs-on: ${{matrix.os}}
     strategy: 
+      max-parallel: 2
       matrix:
         os: [ubuntu-latest , windows-latest]
+        php_version: [8.2,8.3,8.4]
+        exclude:
+          - os: ubuntu-latest
+            php_version: 8.3
+        include:
+          - os: macos-latest
+            php_version: 8.4
     env: 
       MY_NAME2: 'Abdallah wael 2'
     steps:
