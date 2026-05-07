@@ -9,7 +9,10 @@ on:
 
 jobs:
   print-hello-world:
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}
+    strategy: 
+      matrix:
+        os: [ubuntu-latest , windows-latest]
     env: 
       MY_NAME2: 'Abdallah wael 2'
     steps:
@@ -34,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Project
-        run: echo "hello world"
+        run: echo "hello world (${{matrix.os}})"
 
   Test: 
     runs-on: ubuntu-latest
