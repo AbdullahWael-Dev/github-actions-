@@ -12,3 +12,9 @@ jobs:
     steps:
       - name: Check php version
         run: php -v
+  php-version-2: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check php version
+        run: php -v
+
