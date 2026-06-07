@@ -1,0 +1,17 @@
+name: Services - Background Container
+run-name: ${{github.actor}} explain-Services  
+on:  
+  workflow_dispatch
+
+jobs:
+  redis-config: 
+    runs-on: ubuntu-latest
+    services:
+       redis:
+          image: redis:latest
+    steps:
+      - name: Install Redis-Cli
+        run: sudo apt-get install -y redis
+        
+      - name: check redis connection
+        run: redis-cli ping
