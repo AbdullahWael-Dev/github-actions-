@@ -8,9 +8,9 @@ jobs:
   open-new-issue-job: 
     runs-on: ubuntu-latest
     steps:
-      - name: Check Out
-        uses: actions/checkout@v4.2.2
-
+      - name: Checkout Code
+        uses: actions/checkout@v6.0.3
+        
       - name: Open New Issue
         run: gh issue create --title "New Issue from Github Actions" --body "Nothing Works"
 
