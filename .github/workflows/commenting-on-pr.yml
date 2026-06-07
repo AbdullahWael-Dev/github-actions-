@@ -1,0 +1,21 @@
+name: Comment On PR
+run-name: ${{github.actor}} Practical example
+
+on:
+    pull_request:
+        types:
+            - closed
+jobs:
+    comment-on-pr-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v6.0.3
+
+            - name: Comment on PR
+              if: github.event.pull_request.merged == false
+              run: gh pr comment $PR_NUMBER --body "We will not be merging you PR. please update your code to satisfy your requirement and open a new pr." --body "Nothing Works"
+
+              env:
+                  GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  PR_NUMBER: ${{github.event.pull_request.number}}
