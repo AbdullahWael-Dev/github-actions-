@@ -1,0 +1,16 @@
+name: Market Place
+run-name: ${{github.actor}} explain-market-place
+
+on:  
+  workflow_dispatch
+
+jobs:
+  php-version: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+      - name: Check PHP Version
+        run: php -v
