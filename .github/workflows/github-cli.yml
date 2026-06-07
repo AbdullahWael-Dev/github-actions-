@@ -3,7 +3,10 @@ run-name: ${{github.actor}} explain-Github cli
   
 on:  
   workflow_dispatch
-
+  
+permissions:
+  issues: write
+  
 jobs:
   open-new-issue-job: 
     runs-on: ubuntu-latest
