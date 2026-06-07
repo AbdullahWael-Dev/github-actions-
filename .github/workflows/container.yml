@@ -1,0 +1,14 @@
+name: 01 Basics Container
+run-name: ${{github.actor}} explain-container -- Docker
+  
+on:  
+  workflow_dispatch
+
+jobs:
+  php-version: 
+    runs-on: ubuntu-latest
+    container:
+      image: php:7.2
+    steps:
+      - name: Check php version
+        run: php -v
