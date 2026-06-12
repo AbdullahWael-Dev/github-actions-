@@ -1,6 +1,6 @@
-name: Run Tests
+name: Run Tests Using Predefined Mysql
 
-run-name: ${{github.actor}} example-run-tests  
+run-name: ${{github.actor}} example-run-tests-using-predefined-mysql
 
 on:  
   workflow_dispatch
@@ -14,6 +14,13 @@ jobs:
 
       # name: install php and composer (IF YOU WANT)
         
+      - name: Enable Mysql
+        run: | 
+          sudo systemctl start mysql.service
+          mysql -uroot -proot -e "CREATE DATABASE github_actions_course;"
+
+      
+
       - name: Install project dependencies
         run: composer install -q
 
@@ -22,9 +29,5 @@ jobs:
             cp .env.example .env
             php artisan key:generate
 
-      - name: Run Tests
-        env: 
-            DB_CONNECTION: 'sqlite'
-            DB_DATABASE: ':memory:'
-
+      - name: Run tests
         run: php artisan test --compact
