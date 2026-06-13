@@ -1,0 +1,36 @@
+name: Run Tests Using Mysql Services
+ 
+run-name: ${{github.actor}} example-run-tests-using-mysql-services
+
+on:  
+  workflow_dispatch
+
+jobs:
+  run-tests: 
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: github_actions_course
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        ports:
+          - 3306:3306
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6.0.3
+
+      # name: install php and composer (IF YOU WANT)
+
+      - name: Install project dependencies
+        run: composer install -q
+
+      - name: Prepare project
+        run: | 
+            cp .env.example .env
+            php artisan key:generate
+
+      - name: Run tests
+        run: XDEBUG_MODE=coverage php artisan test --coverage
